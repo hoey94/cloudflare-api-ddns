@@ -16,3 +16,15 @@ apt-get install net-tools
 
 B站视频介绍 https://www.bilibili.com/video/BV1A5411A7DR/  
 油管视频介绍 https://www.youtube.com/watch?v=3XmMTWJI8XE   
+
+
+在linux中设置定时调度
+```shell
+
+crontab -e 
+
+# 每1分钟执行一次
+* * * * * /data/cf_ddns.sh -f true >> /tmp/log/ddns.log
+# 每5分钟执行一次
+*/5 * * * * /data/cf_ddns.sh -f true >> /tmp/log/ddns.log
+```
