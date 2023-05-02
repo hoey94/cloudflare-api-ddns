@@ -20,11 +20,27 @@ B站视频介绍 https://www.bilibili.com/video/BV1A5411A7DR/
 
 在linux中设置定时调度
 ```shell
-
 crontab -e 
 
 # 每1分钟执行一次
 * * * * * /data/cf_ddns.sh -f true >> /tmp/log/ddns.log
 # 每5分钟执行一次
 */5 * * * * /data/cf_ddns.sh -f true >> /tmp/log/ddns.log
+```
+
+在$HOME目录会记录对应的信息，模板如下：
+```
+cfzone_id=
+cfrecord_id=a525a071d0ab13d913ba08f4638f0ea8 
+cfzone_name=hoey.top # 主域名
+cfrecord_name=dip.hoey.top # 二级域名
+```
+
+关于cf_record_id的获取：
+需要提前创建好二级域名，然后用下面的命令获取id
+```
+curl -s -X GET "https://api.cloudflare.com/client/v4/zones/55b531f053855eab73e2c665db8c4243/dns_records?name=dip.hoey.top" \
+ -H "X-Auth-Email: 646660803@qq.com"  \
+ -H "X-Auth-Key: $KEY" \
+ -H "Content-Type: application/json"   
 ```
