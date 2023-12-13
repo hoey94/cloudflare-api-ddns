@@ -29,9 +29,10 @@ crontab -e
 ```
 
 在$HOME目录会记录对应的信息，模板如下：
+下面对应的每个字段都要填写正确。
 ```
 cfzone_id=
-cfrecord_id=a525a071d0ab13d913ba08f4638f0ea8 
+cfrecord_id=
 cfzone_name=hoey.top # 主域名
 cfrecord_name=dip.hoey.top # 二级域名
 ```
