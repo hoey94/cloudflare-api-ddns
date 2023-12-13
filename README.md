@@ -35,12 +35,17 @@ cfrecord_id=a525a071d0ab13d913ba08f4638f0ea8
 cfzone_name=hoey.top # 主域名
 cfrecord_name=dip.hoey.top # 二级域名
 ```
+关于cf_zone_id的获取：
+<img width="1402" alt="image" src="https://github.com/hoey94/cloudflare-api-ddns/assets/13510799/f2750bb0-a45e-492c-8177-7da2fa843085">
+
 
 关于cf_record_id的获取：
 需要提前创建好二级域名，然后用下面的命令获取id
+55b531f053855eab73e2c665db8c4243是zone_id,KEY是你申请的KEY，可以在链接里面找https://dash.cloudflare.com/profile/api-tokens
 ```
 curl -s -X GET "https://api.cloudflare.com/client/v4/zones/55b531f053855eab73e2c665db8c4243/dns_records?name=dip.hoey.top" \
  -H "X-Auth-Email: 646660803@qq.com"  \
  -H "X-Auth-Key: $KEY" \
  -H "Content-Type: application/json"   
 ```
+请求成功返回的id字段就是record_id
